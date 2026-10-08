@@ -1,0 +1,2881 @@
+{
+  "events": [
+    {
+      "key": "initialization",
+      "description": "When the map is initialized",
+      "params": []
+    },
+    {
+      "key": "unit-kill",
+      "description": "When a unit dies",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "region-between-units",
+      "description": "When a unit gets close to another unit",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Maximum distance",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "distance-between-units",
+      "description": "When a unit moves away from another unit",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Minimum distance",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "dialog-box-close",
+      "description": "When a dialog box is closed",
+      "params": []
+    },
+    {
+      "key": "unit-cast-ability",
+      "description": "When a unit casts an ability",
+      "params": []
+    },
+    {
+      "key": "unit-use-item",
+      "description": "When a unit uses an item",
+      "params": []
+    },
+    {
+      "key": "call-event",
+      "description": "When triggered by the call-event action",
+      "params": []
+    },
+    {
+      "key": "region-entered",
+      "description": "When a unit enters a region",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integerValue",
+          "index": -1,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "item-dropped",
+      "description": "When an item is dropped",
+      "params": []
+    },
+    {
+      "key": "item-picked",
+      "description": "When an item is picked up",
+      "params": []
+    },
+    {
+      "key": "start-cutscene",
+      "description": "Start a cutscene (cinematic sequence rendered in menu mode)",
+      "params": []
+    }
+  ],
+  "conditions": [
+    {
+      "key": "game-event-check",
+      "description": "Game event is a specific value",
+      "params": [
+        {
+          "field": "integerValue",
+          "index": -1,
+          "label": "Game event ID",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-check-target",
+      "description": "Triggering unit has a specific name",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-check-stats",
+      "description": "Unit stat matches a value",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Attribute",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Operator (equal/greater/lower/greater-or-equal/lower-or-equal)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Value",
+          "type": "float",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Attribute name (custom)",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "dialog-box-option",
+      "description": "A specific dialog box option was chosen",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Dialog box ID",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Option index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "get-game-context",
+      "description": "Game context is a specific string",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Context",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Negate (check NOT)",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-check-target-ability-hotkey",
+      "description": "Unit last cast from a hotkey slot",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Hotkey",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-check-used-item",
+      "description": "Unit last used a specific item",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Item",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "player-control-type",
+      "description": "Player control mode matches",
+      "params": [
+        {
+          "field": "integerValue",
+          "index": -1,
+          "label": "Control mode",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "get-global-variable",
+      "description": "Global variable is a specific boolean",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Variable name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected value",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-check-alive",
+      "description": "A unit is alive or dead",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected alive",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "region-check-item",
+      "description": "An item exists inside a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Item name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected present",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "region-check-unit",
+      "description": "A unit exists inside a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected present",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-player-check-item",
+      "description": "A unit or its storage has an item",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Item name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected present",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "map-check-visited",
+      "description": "A map was visited before",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Map path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected visited",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "portal-is-locked",
+      "description": "A portal is currently locked (manual lock or day/night schedule)",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Portal index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected locked",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "daytime-check",
+      "description": "The current day/night phase matches (day, night or an hour range like 19-5)",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Phase (day/night or hours like 19-5)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Expected match",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-check-type",
+      "description": "A unit has a specific type/filename",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Type/filename",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Unit name",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-check-picked-item",
+      "description": "Unit last picked up a specific item",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Item name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-check-casted-ability",
+      "description": "Unit last cast a specific ability",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Ability index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "game-event-change",
+      "description": "Change the current game event",
+      "params": [
+        {
+          "field": "integerValue",
+          "index": -1,
+          "label": "Game event ID",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "camera-move-unit",
+      "description": "Move the camera to a unit",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Duration (0 = instant)",
+          "type": "float",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "camera-lock-hero",
+      "description": "Lock or unlock the camera on the hero",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Locked",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "menu-show",
+      "description": "Open a menu",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Menu name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Full reset",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "system-sleep",
+      "description": "Pause for a duration",
+      "params": [
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Seconds",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "text-dialog",
+      "description": "Show a floating dialog over a unit",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Dialog category",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Dialog key",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "\"USE-DIALOGBOX\" to force dialog box",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-intelligence-range-min-change",
+      "description": "Change the aggro range of a unit",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Minimum range",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "set-gold-all-players",
+      "description": "Set the gold of all players",
+      "params": [
+        {
+          "field": "integerValue",
+          "index": -1,
+          "label": "Gold",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "set-food",
+      "description": "Set the food of a unit (boltcraft)",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Food amount",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "text-messagebox",
+      "description": "Show a message box",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Type (0 info / 1 warning)",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Caption category",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Caption key",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Text category",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 3,
+          "label": "Text key",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "text-dialogbox",
+      "description": "Open a dialog box with options",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Dialog box ID",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Portrait name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Caption category",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Caption key",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 3,
+          "label": "Text category",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 4,
+          "label": "Text key",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "text-console",
+      "description": "Show a message in the console",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Category",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Key",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Portrait icon",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "add-gold-all-players",
+      "description": "Add gold to all players",
+      "params": [
+        {
+          "field": "integerValue",
+          "index": -1,
+          "label": "Gold",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "spawn-item",
+      "description": "Spawn one or more items",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Item path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Item path (extra)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Stack",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Position X (0 = unit)",
+          "type": "float",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 1,
+          "label": "Position Y",
+          "type": "float",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "add-item",
+      "description": "Add an item to a unit inventory",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Item path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Stack",
+          "type": "int",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "trigger-reset",
+      "description": "Reset the trigger so it can fire again",
+      "params": []
+    },
+    {
+      "key": "remove-skill-all",
+      "description": "Remove all abilities from a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "remove-passive-all",
+      "description": "Remove all passives from a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "clear-storage",
+      "description": "Clear the shared stash",
+      "params": []
+    },
+    {
+      "key": "add-skill",
+      "description": "Add abilities to a unit or the shared stash",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Add to shared stash",
+          "type": "bool",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Ability path",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Hotkey",
+          "type": "int",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "add-passive",
+      "description": "Add passives to a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Passive path (extra)",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "disable-skill",
+      "description": "Disable specific abilities of a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Ability path (extra)",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "set-game-context",
+      "description": "Set the game context string",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Context",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-edit-status",
+      "description": "Edit stats/attributes of a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Use attribute names",
+          "type": "bool",
+          "required": false
+        },
+        {
+          "field": "booleans",
+          "index": 1,
+          "label": "Add mode (true) / set mode (false)",
+          "type": "bool",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Attribute (extra)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Value (extra)",
+          "type": "float",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "spawn-unit",
+      "description": "Spawn a unit at a position",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Alliance (enemy/neutral)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Position X",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Position Y",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 2,
+          "label": "Group",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Summoned portal",
+          "type": "bool",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Custom name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 3,
+          "label": "Item drop",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "spawn-unit-region",
+      "description": "Spawn a unit inside a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Alliance (enemy/neutral)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Group",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Summoned portal",
+          "type": "bool",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Custom name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 3,
+          "label": "Item drop",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-edit-exp",
+      "description": "Edit the experience of a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Experience",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Add mode (true) / set mode (false)",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-pause",
+      "description": "Pause a unit for a duration",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Seconds",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-unpause",
+      "description": "Unpause a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "add-special-effect",
+      "description": "Add a special effect",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Texture",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Animation",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Attach type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 3,
+          "label": "Unit name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Position X",
+          "type": "float",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 1,
+          "label": "Position Y",
+          "type": "float",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 2,
+          "label": "Duration",
+          "type": "float",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 3,
+          "label": "Scale",
+          "type": "float",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Color R",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Color G",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 2,
+          "label": "Color B",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 3,
+          "label": "Color A",
+          "type": "int",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-teleport",
+      "description": "Teleport a unit to a position",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Position X",
+          "type": "float",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 1,
+          "label": "Position Y",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-kill",
+      "description": "Kill a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-remove",
+      "description": "Remove a unit from the map",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-change-name",
+      "description": "Change the name of a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "New name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "item-remove",
+      "description": "Remove an item from the world",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Item name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-cast-skill",
+      "description": "Make a unit cast a skill on another unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Target unit",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Skill name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 3,
+          "label": "Animation",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "spawn-merchant",
+      "description": "Spawn a merchant at a position",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Merchant path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Position X",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Position Y",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "merchant-remove",
+      "description": "Remove a merchant by name",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Merchant name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "merchant-remove-all",
+      "description": "Remove all merchants",
+      "params": []
+    },
+    {
+      "key": "merchant-update",
+      "description": "Refresh the inventory of a merchant",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Merchant name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-mass-enemy-kill",
+      "description": "Kill all enemy units",
+      "params": []
+    },
+    {
+      "key": "unit-mass-kill-type",
+      "description": "Kill all units of a specific type",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit type/filename",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "delete-save",
+      "description": "Delete the save file",
+      "params": []
+    },
+    {
+      "key": "game-select-subclass",
+      "description": "Open the subclass selection screen",
+      "params": []
+    },
+    {
+      "key": "check-official-custom-map",
+      "description": "Check that the map is an official custom map (boltcraft)",
+      "params": []
+    },
+    {
+      "key": "check-campaign-endgame",
+      "description": "Check the campaign endgame state (boltcraft)",
+      "params": []
+    },
+    {
+      "key": "check-campaign-final",
+      "description": "Check the campaign final state (boltcraft)",
+      "params": []
+    },
+    {
+      "key": "unit-hide",
+      "description": "Hide a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Hide duration",
+          "type": "float",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-unhide",
+      "description": "Reveal a hidden unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "add-sfx",
+      "description": "Play a special effect",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Effect path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Position X",
+          "type": "float",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 1,
+          "label": "Position Y",
+          "type": "float",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "HUD canvas",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "play-animation",
+      "description": "Play an animation on a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Animation",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Set as default animation",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "call-event",
+      "description": "Trigger the call-event event",
+      "params": []
+    },
+    {
+      "key": "prop-play-animation",
+      "description": "Play an animation on a prop",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Prop variable",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Animation",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "environment-play-animation",
+      "description": "Play an animation on an environment",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Environment variable",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Animation",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "camera-move-prop",
+      "description": "Move the camera to a prop",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Prop variable",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Duration (0 = instant)",
+          "type": "float",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "camera-move-region",
+      "description": "Move the camera to a region",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Duration (0 = instant)",
+          "type": "float",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "camera-shake",
+      "description": "Shake the camera",
+      "params": [
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Duration",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "play-sound",
+      "description": "Play a sound effect",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Sound path",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "sound-play",
+      "description": "Play a sound effect (boltcraft)",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Sound path",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "portal-enable",
+      "description": "Enable or disable a portal",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Portal index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Active",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "portal-lock",
+      "description": "Lock or unlock a portal (blocks entering it)",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Portal index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Locked",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "set-global-variable",
+      "description": "Set a global boolean variable",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Variable name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Value",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "prop-kill",
+      "description": "Remove a prop",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Prop variable",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "block-map-teleport",
+      "description": "Block or allow map teleport",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Blocked",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-cast-skill-region",
+      "description": "Make a unit cast a skill at a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Skill name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Animation",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "unit-teleport-region",
+      "description": "Teleport a unit to a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-move-unit",
+      "description": "Make a unit move to another unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Target unit",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-move-region",
+      "description": "Make a unit move to a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "spawn-item-region",
+      "description": "Spawn items inside a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Item path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Item path (extra)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Stack",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "region-terrain-animation",
+      "description": "Play an animation on terrain in a region",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Animation",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "region-terrain-remove",
+      "description": "Remove terrain inside a region",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "apply-map-fog",
+      "description": "Apply fog of war",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Style",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "break-map-fog",
+      "description": "Remove fog of war",
+      "params": []
+    },
+    {
+      "key": "reveal-all-map-fog",
+      "description": "Reveal entire map in fog of war",
+      "params": []
+    },
+    {
+      "key": "music-change",
+      "description": "Change the background music",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Music name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "spawn-environment",
+      "description": "Spawn an environment object",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Environment path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Variable",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Position X",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Position Y",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "music-pause",
+      "description": "Pause the music",
+      "params": []
+    },
+    {
+      "key": "travel-block",
+      "description": "Block or allow map travel",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Blocked",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "unit-set-dialog-value",
+      "description": "Set the dialog value of a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Value",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "wall-remove",
+      "description": "Remove walls inside a region",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "change-map-particles",
+      "description": "Change the map particles",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Particles name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "change-mass-environment",
+      "description": "Replace all environments of one type",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Old environment path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "New environment path",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "show-help-tooltip",
+      "description": "Show the help tooltip",
+      "params": []
+    },
+    {
+      "key": "reset-unit",
+      "description": "Reset a unit to its defaults",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "remove-skills-hotkey",
+      "description": "Remove abilities by hotkey slot",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Hotkey (extra)",
+          "type": "int",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "add-environment-sfx",
+      "description": "Spawn an environment with particles",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Environment path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Variable",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Position X",
+          "type": "float",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 1,
+          "label": "Position Y",
+          "type": "float",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Color R",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Color G",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 2,
+          "label": "Color B",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 3,
+          "label": "Color A",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 4,
+          "label": "Particle count",
+          "type": "int",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "add-environment-sfx-region",
+      "description": "Spawn an environment with particles in a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Environment path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Variable",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Color R",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 2,
+          "label": "Color G",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 3,
+          "label": "Color B",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 4,
+          "label": "Color A",
+          "type": "int",
+          "required": false
+        },
+        {
+          "field": "integers",
+          "index": 5,
+          "label": "Particle count",
+          "type": "int",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "enable-skill-tree",
+      "description": "Show or hide the skill tree",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Show",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "clear-skill-tree",
+      "description": "Clear the skill tree choices of a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "clear-passive-tree",
+      "description": "Clear the passive tree choices of a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "move-all-items-region",
+      "description": "Drop all items of a unit at a position",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Position X",
+          "type": "float",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 1,
+          "label": "Position Y",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "take-all-items-region",
+      "description": "Pick up all items at a position into a unit",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 0,
+          "label": "Position X",
+          "type": "float",
+          "required": true
+        },
+        {
+          "field": "floats",
+          "index": 1,
+          "label": "Position Y",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "minimap-disable",
+      "description": "Disable the minimap",
+      "params": []
+    },
+    {
+      "key": "environment-play-animation-region",
+      "description": "Play an animation on environments in a region",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Animation",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "add-wall",
+      "description": "Add a wall at a region",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "fog-toggle",
+      "description": "Toggle the fog setting",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Enabled",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "add-intro-sound",
+      "description": "Set the guardian intro sounds",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Sound path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Sound path (extra)",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "play-intro-sound",
+      "description": "Play the current guardian intro sound",
+      "params": []
+    },
+    {
+      "key": "erase-world",
+      "description": "Erase everything outside a region",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "exit",
+      "description": "Go to the exit map",
+      "params": []
+    },
+    {
+      "key": "show-credits-label",
+      "description": "Show a credits label in a region",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Credits frame",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Region index",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "toggle-control",
+      "description": "Enable or disable player control",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Enabled",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "toggle-extra-modes",
+      "description": "Enable or disable extra modes",
+      "params": [
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Enabled",
+          "type": "bool",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "extra-modes-info",
+      "description": "Show the extra modes info box",
+      "params": []
+    },
+    {
+      "key": "player-alliance",
+      "description": "Set the alliance between two players",
+      "params": [
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Player A",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 1,
+          "label": "Player B",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Alliance (ally/neutral/enemy)",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "show-map-caption",
+      "description": "Show a caption on the map",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Category",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Key",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "console-dialogbox",
+      "description": "Show a dialog in the console",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Portrait",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Category",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 2,
+          "label": "Key",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "world-minimap-set",
+      "description": "Set the world minimap data",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Minimap name",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "quest-new",
+      "description": "Add a new quest",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Quest path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Quest ID",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "quest-update",
+      "description": "Update a quest objective",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Quest ID",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 1,
+          "label": "Objective ID",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "integers",
+          "index": 0,
+          "label": "Progress",
+          "type": "int",
+          "required": true
+        },
+        {
+          "field": "booleans",
+          "index": 0,
+          "label": "Visible",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "dialog-mark",
+      "description": "Show/hide a dialog mark over a unit",
+      "params": [
+        {
+          "field": "unitName",
+          "index": -1,
+          "label": "Unit name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Mark effect path",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "cutscene-music",
+      "description": "Cutscene: play background music",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Music name (empty stops music)",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-sound",
+      "description": "Cutscene: play a sound effect",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Sound name (resources/sounds)",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-source",
+      "description": "Cutscene: show a centered background image",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Texture path (data/textures)",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-fadein",
+      "description": "Cutscene: fade the image in",
+      "params": [
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Duration (seconds)",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-fadecolor",
+      "description": "Cutscene: set the fade color (RRRGGGBBB)",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Fade color",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-dialog",
+      "description": "Cutscene: show a dialog (CUTSCENES group)",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Dialog key",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-wait",
+      "description": "Cutscene: wait for a duration",
+      "params": [
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Seconds",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-fadeout",
+      "description": "Cutscene: fade the image and dialog out",
+      "params": [
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Duration (seconds)",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "cutscene-eof",
+      "description": "Cutscene: end and return to the previous mode",
+      "params": []
+    },
+    {
+      "key": "screen-fadein",
+      "description": "Screen: fade the screen in while playing (stage/cinematic)",
+      "params": [
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Duration (seconds, 0 = instant)",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "screen-fadeout",
+      "description": "Screen: fade the screen to black while playing (stage/cinematic)",
+      "params": [
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Duration (seconds, 0 = instant)",
+          "type": "float",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "screen-fadecolor",
+      "description": "Screen: set the fade color used by screen fades (RRRGGGBBB)",
+      "params": [
+        {
+          "field": "strings",
+          "index": 0,
+          "label": "Fade color",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "daytime-pause",
+      "description": "Pause the day/night cycle",
+      "params": []
+    },
+    {
+      "key": "daytime-unpause",
+      "description": "Resume the day/night cycle",
+      "params": []
+    },
+    {
+      "key": "daytime-set",
+      "description": "Set the daytime hour (0-24)",
+      "params": [
+        {
+          "field": "floatValue",
+          "index": -1,
+          "label": "Hour (0.0 - 23.99)",
+          "type": "float",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

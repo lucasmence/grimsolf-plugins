@@ -1,0 +1,83 @@
+{
+	"name": "grimsolf-sprite-viewer",
+	"displayName": "Grimsolf Sprite Viewer",
+	"description": "Preview Grimsolf texture JSONs: opens the sprite sheet in a popup using the texturename path, and plays each animation like the in-game Sprite Editor.",
+	"version": "1.0.0",
+	"publisher": "grimsolf",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Visualization",
+		"Other"
+	],
+	"keywords": [
+		"grimsolf",
+		"sprite",
+		"texture",
+		"json",
+		"animation"
+	],
+	"main": "./extension.js",
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "grimsolfSpriteViewer.showSheet",
+				"title": "Grimsolf: Show sprite sheet"
+			},
+			{
+				"command": "grimsolfSpriteViewer.showAnimation",
+				"title": "Grimsolf: Play animation"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "grimsolfSpriteViewer.showSheet",
+				"key": "ctrl+alt+g",
+				"when": "editorLangId == json"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "grimsolfSpriteViewer.showSheet",
+					"when": "editorLangId == json && grimsolfIsTextureJson",
+					"group": "navigation@1"
+				}
+			],
+			"editor/title/context": [
+				{
+					"command": "grimsolfSpriteViewer.showSheet",
+					"when": "editorLangId == json && grimsolfIsTextureJson",
+					"group": "navigation@1"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Grimsolf Sprite Viewer",
+			"properties": {
+				"grimsolfSpriteViewer.spritesRoot": {
+					"type": "string",
+					"default": "resources/sprites",
+					"description": "Folder (relative to the workspace root) where the sprite sheets are stored, e.g. \"resources/sprites\"."
+				},
+				"grimsolfSpriteViewer.defaultScale": {
+					"type": "number",
+					"default": 1,
+					"minimum": 0.1,
+					"maximum": 8,
+					"description": "Default zoom of the sprite sheet and animation popups (1 = 100%)."
+				}
+			}
+		}
+	},
+	"__metadata": {
+		"installedTimestamp": 1786281059365,
+		"targetPlatform": "undefined",
+		"size": 45909
+	}
+}

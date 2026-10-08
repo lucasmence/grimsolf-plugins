@@ -1,0 +1,146 @@
+/* Grimsolf Sprite Viewer - animation popup */
+:root {
+    --bg: #121218;
+    --bg-2: #1a1a24;
+    --panel: #1e1e2a;
+    --panel-2: #24243a;
+    --border: #33334a;
+    --text: #e8e8f0;
+    --text-dim: #9a9ab0;
+    --accent: #4fd1ff;
+    --gold: #ffd75e;
+    --green: #7ee08a;
+    --red: #ff6b6b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Ubuntu, sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.app-header {
+    padding: 10px 14px;
+    background: linear-gradient(180deg, var(--panel), var(--bg-2));
+    border-bottom: 1px solid var(--border);
+    flex: none;
+}
+
+.title-row { display: flex; align-items: baseline; gap: 10px; }
+
+.title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.4px;
+}
+
+.anim-name { font-size: 14px; font-weight: 700; color: var(--text); }
+.texture-name { font-family: Consolas, monospace; font-size: 11px; color: var(--gold); }
+
+.meta { margin-top: 4px; color: var(--text-dim); font-family: Consolas, monospace; font-size: 11px; }
+
+.warn-banner {
+    padding: 8px 14px;
+    background: #3a2226;
+    color: var(--red);
+    border-bottom: 1px solid #5a3238;
+    font-size: 12px;
+}
+
+.anim-layout {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+.stage-pane {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background:
+        repeating-conic-gradient(#1c1c26 0% 25%, #14141c 0% 50%) 0 0 / 24px 24px;
+}
+
+#anim-canvas {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+.stage-overlay {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    background: rgba(18, 18, 24, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    pointer-events: none;
+}
+
+.controls-pane {
+    width: 300px;
+    flex: none;
+    background: var(--bg-2);
+    border-left: 1px solid var(--border);
+    padding: 12px;
+    overflow-y: auto;
+}
+
+.ctrl-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.ctrl-row label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.ctrl-row input[type="range"] { flex: 1; min-width: 90px; }
+
+button {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-width: 38px;
+    height: 30px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.12s ease, border-color 0.12s ease;
+}
+button:hover { background: var(--panel-2); border-color: var(--accent); }
+button:active { transform: scale(0.96); }
+
+.info-grid {
+    margin: 14px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 12px;
+    font-size: 11px;
+}
+.info-grid dt { color: var(--text-dim); }
+.info-grid dd { margin: 0; font-family: Consolas, monospace; color: var(--text); }

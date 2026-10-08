@@ -1,0 +1,94 @@
+{
+    "name": "grimsolf-trigger",
+    "displayName": "Grimsolf Trigger",
+    "description": "Editing support for Grimsolf trigger YAML files: grimsolf-trigger file type, completion with all events/conditions/actions, hover docs, snippets and live syntax validation.",
+    "version": "1.0.1",
+    "publisher": "grimsolf",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Linters"
+    ],
+    "activationEvents": [
+        "onLanguage:grimsolf-trigger"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "grimsolf-trigger",
+                "aliases": [
+                    "Grimsolf Trigger",
+                    "grimsolf-trigger"
+                ],
+                "extensions": [
+                    ".gtyaml",
+                    ".yaml",
+                    ".yml"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "grimsolf-trigger",
+                "scopeName": "source.grimsolf-trigger",
+                "path": "./syntaxes/grimsolf-trigger.tmLanguage.json"
+            }
+        ],
+        "configuration": {
+            "title": "Grimsolf Trigger",
+            "properties": {
+                "grimsolfTrigger.dataPath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path to the Grimsolf game folder (contains data/). Used to validate maps, quests and skill paths. Leave empty to disable path validation."
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "grimsolfTrigger.insertTriggerBlock",
+                "title": "Grimsolf: Insert Trigger Block",
+                "category": "Grimsolf"
+            },
+            {
+                "command": "grimsolfTrigger.insertEntry",
+                "title": "Grimsolf: Insert Event/Condition/Action",
+                "category": "Grimsolf"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "grimsolfTrigger.insertEntry",
+                "key": "ctrl+alt+g",
+                "when": "editorLangId == grimsolf-trigger"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "grimsolfTrigger.insertTriggerBlock",
+                    "when": "editorLangId == grimsolf-trigger"
+                },
+                {
+                    "command": "grimsolfTrigger.insertEntry",
+                    "when": "editorLangId == grimsolf-trigger"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -w -p ./",
+        "package": "npx @vscode/vsce package --no-dependencies"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@types/vscode": "^1.75.0",
+        "typescript": "^5.0.0"
+    }
+}

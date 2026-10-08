@@ -1,0 +1,100 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Grimsolf Trigger",
+    "scopeName": "source.grimsolf-trigger",
+    "patterns": [
+        {
+            "include": "#comment"
+        },
+        {
+            "include": "#document-key"
+        },
+        {
+            "include": "#type-key"
+        },
+        {
+            "include": "#param-key"
+        },
+        {
+            "include": "#block-key"
+        },
+        {
+            "include": "#value"
+        }
+    ],
+    "repository": {
+        "comment": {
+            "match": "#.*$",
+            "name": "comment.line.number-sign.grimsolf-trigger"
+        },
+        "document-key": {
+            "match": "^\\s*(environments-drop|item-drop|item-drop-list|player-characters|trigger)\\s*:",
+            "name": "entity.name.tag.document.grimsolf-trigger"
+        },
+        "block-key": {
+            "match": "^\\s*(events|conditions|conditions-or|then|else)\\s*:",
+            "name": "entity.name.section.block.grimsolf-trigger"
+        },
+        "type-key": {
+            "match": "^\\s*-(\\s*)(event|condition|action)\\s*:",
+            "captures": {
+                "1": {
+                    "name": "punctuation.separator.key-value.grimsolf-trigger"
+                },
+                "2": {
+                    "name": "keyword.control.type.grimsolf-trigger"
+                }
+            }
+        },
+        "param-key": {
+            "match": "\\b(floatValue|integerValue|unitName|text|strings|integers|floats|booleans|value|chance|drops)\\s*:",
+            "name": "variable.parameter.field.grimsolf-trigger"
+        },
+        "value": {
+            "patterns": [
+                {
+                    "include": "#string-double"
+                },
+                {
+                    "include": "#string-single"
+                },
+                {
+                    "include": "#number"
+                },
+                {
+                    "include": "#boolean-null"
+                }
+            ]
+        },
+        "string-double": {
+            "begin": "\"",
+            "end": "\"",
+            "name": "string.quoted.double.grimsolf-trigger",
+            "patterns": [
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.grimsolf-trigger"
+                }
+            ]
+        },
+        "string-single": {
+            "begin": "'",
+            "end": "'",
+            "name": "string.quoted.single.grimsolf-trigger",
+            "patterns": [
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.grimsolf-trigger"
+                }
+            ]
+        },
+        "number": {
+            "match": "-?\\b\\d+(\\.\\d+)?\\b",
+            "name": "constant.numeric.grimsolf-trigger"
+        },
+        "boolean-null": {
+            "match": "\\b(true|false|null)\\b",
+            "name": "constant.language.grimsolf-trigger"
+        }
+    }
+}
